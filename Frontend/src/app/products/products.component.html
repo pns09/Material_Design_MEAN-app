@@ -1,0 +1,26 @@
+<table class="table table-bordered shadow-lg p-3 mb-5 bg-white rounded">
+    <thead class="thead-dark">
+        <tr>
+
+            <th scope="col">Image</th>
+            <th scope="col">Product Id</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Product Code</th>
+            <th scope="col">Description</th>
+            <th scope="col">Star Rating</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of products">
+
+            <th><img [src]="item.imageUrl" width="50px"></th>
+            <th>{{item.productId}}</th>
+            <td><a>{{item.productName}}</a></td>
+            <td>{{item.productCode}}</td>
+            <td>{{item.description}}</td>
+            <td>{{item.starRating}}</td>
+        </tr>
+    </tbody>
+
+</table>
+

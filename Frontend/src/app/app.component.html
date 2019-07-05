@@ -1,0 +1,12 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>MeanSample</span>
+    <span class="spacer"></span>
+    <button mat-button [routerLink]="['/register']">Register</button>
+    <button mat-button [routerLink]="['/login']">Login</button>
+    <button mat-button [routerLink]="['/products']">Products</button>
+    <button mat-button [routerLink]="['/logout']" color="accent">Logout</button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<router-outlet></router-outlet>

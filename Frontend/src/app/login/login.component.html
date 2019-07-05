@@ -1,0 +1,30 @@
+<div class="main-div">
+  <p>Welcome!!</p>
+  <mat-card>
+    <mat-card-title>LOGIN</mat-card-title>
+    <mat-card-content>
+
+      <form class="example-form" #loginform="ngForm">
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Username" ngModel name="username" #username="ngModel" required>
+        </mat-form-field>
+        <div *ngIf="username.invalid && username.touched">
+          <div *ngIf="username.errors.required">*Please enter the username</div>
+        </div>
+
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Password" ngModel name="password" #password="ngModel" type="password" required>
+        </mat-form-field>
+        <div *ngIf="password.invalid && password.touched">
+          <div *ngIf="password.errors.required">*Please enter the password</div>
+        </div>
+
+      </form>
+
+      <!-- <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner> -->
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button (click)="login()" color="primary" [disabled]="loginform.invalid">Login</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

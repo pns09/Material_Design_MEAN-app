@@ -1,0 +1,54 @@
+<mat-card class="center">
+  <mat-card-content>
+    <mat-card-title>REGISTER</mat-card-title>
+
+    <form #registerForm="ngForm" class="my-form" (ngSubmit)="registerForm.valid && submit(registerForm)">
+
+      <mat-form-field class="full-width"> 
+        <mat-label>First Name</mat-label>
+        <input matInput [(ngModel)]="registeredUser.fname" name="fname" #fname="ngModel" minlength="5" required>
+      </mat-form-field>
+      <div *ngIf="!fname.valid && fname.touched">
+        <div *ngIf="fname.errors.required">*First Name is required!</div>
+        <div *ngIf="fname.errors.minlength">*Should be 5 characters long!</div>
+      </div>
+
+      <mat-form-field class="full-width">
+        <mat-label>Last Name</mat-label>
+        <input matInput  [(ngModel)]="registeredUser.lname" name="lname" #lname="ngModel" minlength="3" required>
+      </mat-form-field>
+      <div *ngIf="!lname.valid && lname.touched">
+        <div *ngIf="lname.errors.required">*Last Name is required!</div>
+        <div *ngIf="lname.errors.minlength">*Should be 5 characters long!</div>
+      </div>
+
+      <mat-form-field class="full-width">
+        <mat-label>Email</mat-label>
+        <input matInput  [(ngModel)]="registeredUser.email" name="email" #email="ngModel" pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" required>
+      </mat-form-field>
+      <div *ngIf="!email.valid && email.touched">
+        <div *ngIf="email.errors.required">*Email is required!</div>
+        <div *ngIf="email.errors.pattern">*Match the email pattern!</div>
+      </div>
+
+      <mat-form-field class="full-width">
+        <mat-label>Password</mat-label>
+        <input matInput  [(ngModel)]="registeredUser.password" name="password" #password="ngModel" type="password" required>
+      </mat-form-field>
+      <div *ngIf="!password.valid && password.touched">
+          <div *ngIf="password.errors.required">*Password is required!</div>
+        </div>
+
+      <!-- <div>
+        <mat-radio-group>
+          <mat-radio-button value="male" name="male">Male</mat-radio-button>
+          <mat-radio-button value="female" name="female">Female</mat-radio-button>
+        </mat-radio-group>
+      </div> -->
+
+      <mat-card-actions>
+        <button mat-raised-button [disabled]="registerForm.invalid" color="primary">Submit</button>
+      </mat-card-actions>
+    </form>
+  </mat-card-content>
+</mat-card>
